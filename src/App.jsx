@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AdminCentralOverview from './pages/AdminCentralOverview';
 import AnnouncementEditorMedicoreAdmin from './pages/AnnouncementEditorMedicoreAdmin';
 import CardiologyServicesMedicoreHealth from './pages/CardiologyServicesMedicoreHealth';
-import ClinicalPrecision from './pages/ClinicalPrecision';
 import ContentManagerAdmin from './pages/ContentManagerAdmin';
 import ManageSuccessStoriesAdmin from './pages/ManageSuccessStoriesAdmin';
 import MedicoreHealthLandingPage from './pages/MedicoreHealthLandingPage';
@@ -23,7 +22,6 @@ const App = () => {
           <li><Link to="/admin_central_overview" style={{ color: '#005EB8', textDecoration: 'underline' }}>Admin Central Overview</Link></li>
           <li><Link to="/announcement_editor_medicore_admin" style={{ color: '#005EB8', textDecoration: 'underline' }}>Announcement Editor</Link></li>
           <li><Link to="/cardiology_services_medicore_health" style={{ color: '#005EB8', textDecoration: 'underline' }}>Cardiology Services</Link></li>
-          <li><Link to="/clinical_precision" style={{ color: '#005EB8', textDecoration: 'underline' }}>Clinical Precision</Link></li>
           <li><Link to="/content_manager_admin" style={{ color: '#005EB8', textDecoration: 'underline' }}>Content Manager</Link></li>
           <li><Link to="/manage_success_stories_admin" style={{ color: '#005EB8', textDecoration: 'underline' }}>Manage Success Stories</Link></li>
           <li><Link to="/medicore_health_landing_page" style={{ color: '#005EB8', textDecoration: 'underline' }}>Main Landing Page</Link></li>
@@ -37,7 +35,6 @@ const App = () => {
         <Route path="/admin_central_overview" element={<AdminCentralOverview />} />
         <Route path="/announcement_editor_medicore_admin" element={<AnnouncementEditorMedicoreAdmin />} />
         <Route path="/cardiology_services_medicore_health" element={<CardiologyServicesMedicoreHealth />} />
-        <Route path="/clinical_precision" element={<ClinicalPrecision />} />
         <Route path="/content_manager_admin" element={<ContentManagerAdmin />} />
         <Route path="/manage_success_stories_admin" element={<ManageSuccessStoriesAdmin />} />
         <Route path="/medicore_health_landing_page" element={<MedicoreHealthLandingPage />} />
