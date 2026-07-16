@@ -17,22 +17,22 @@ import SuccessStoryEditorMedicoreAdmin from './pages/SuccessStoryEditorMedicoreA
 const App = () => {
   return (
     <Router>
-      <div style={{ padding: '20px', background: '#fff', marginBottom: '20px', borderBottom: '1px solid #ccc' }}>
-        <h1 style={{ fontSize: '24px', marginBottom: '10px' }}>Hospital App Development Navigation</h1>
-        <p style={{ marginBottom: '10px', color: '#666' }}>Click a page below to preview it:</p>
-        <ul style={{ lineHeight: '1.8', listStyleType: 'disc', paddingLeft: '20px' }}>
-          <li><Link to="/admin_central_overview" style={{ color: '#005EB8', textDecoration: 'underline' }}>Admin Central Overview</Link></li>
-          <li><Link to="/announcement_editor_medicore_admin" style={{ color: '#005EB8', textDecoration: 'underline' }}>Announcement Editor</Link></li>
-          <li><Link to="/cardiology_services_medicore_health" style={{ color: '#005EB8', textDecoration: 'underline' }}>Cardiology Services</Link></li>
-          <li><Link to="/clinical_precision" style={{ color: '#005EB8', textDecoration: 'underline' }}>Clinical Precision</Link></li>
-          <li><Link to="/content_manager_admin" style={{ color: '#005EB8', textDecoration: 'underline' }}>Content Manager</Link></li>
-          <li><Link to="/manage_success_stories_admin" style={{ color: '#005EB8', textDecoration: 'underline' }}>Manage Success Stories</Link></li>
-          <li><Link to="/medicore_health_landing_page" style={{ color: '#005EB8', textDecoration: 'underline' }}>Main Landing Page</Link></li>
-          <li><Link to="/medicore_health_landing_page_with_announcements_enhanced_stories" style={{ color: '#005EB8', textDecoration: 'underline' }}>Enhanced Landing Page</Link></li>
-          <li><Link to="/our_doctors_medicore_health" style={{ color: '#005EB8', textDecoration: 'underline' }}>Our Doctors</Link></li>
-          <li><Link to="/staff_directory_medicore_admin" style={{ color: '#005EB8', textDecoration: 'underline' }}>Staff Directory</Link></li>
-          <li><Link to="/success_story_editor_medicore_admin" style={{ color: '#005EB8', textDecoration: 'underline' }}>Success Story Editor</Link></li>
-        </ul>
+      <div className="container mt-4 mb-5 border-bottom pb-3">
+        <h1 className="h4 mb-3">Hospital App Development Navigation</h1>
+        <p className="text-muted mb-3">Click a page below to preview it:</p>
+        <div className="d-flex flex-wrap gap-2">
+          <Link className="btn btn-outline-primary btn-sm" to="/admin_central_overview">Admin Central Overview</Link>
+          <Link className="btn btn-outline-primary btn-sm" to="/announcement_editor_medicore_admin">Announcement Editor</Link>
+          <Link className="btn btn-outline-primary btn-sm" to="/cardiology_services_medicore_health">Cardiology Services</Link>
+          <Link className="btn btn-outline-primary btn-sm" to="/clinical_precision">Clinical Precision</Link>
+          <Link className="btn btn-outline-primary btn-sm" to="/content_manager_admin">Content Manager</Link>
+          <Link className="btn btn-outline-primary btn-sm" to="/manage_success_stories_admin">Manage Success Stories</Link>
+          <Link className="btn btn-outline-primary btn-sm" to="/medicore_health_landing_page">Main Landing Page</Link>
+          <Link className="btn btn-outline-primary btn-sm" to="/medicore_health_landing_page_with_announcements_enhanced_stories">Enhanced Landing Page</Link>
+          <Link className="btn btn-outline-primary btn-sm" to="/our_doctors_medicore_health">Our Doctors</Link>
+          <Link className="btn btn-outline-primary btn-sm" to="/staff_directory_medicore_admin">Staff Directory</Link>
+          <Link className="btn btn-outline-primary btn-sm" to="/success_story_editor_medicore_admin">Success Story Editor</Link>
+        </div>
       </div>
       <Routes>
         <Route path="/admin_central_overview" element={<AdminCentralOverview />} />
