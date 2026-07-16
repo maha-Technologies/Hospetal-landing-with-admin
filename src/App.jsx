@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AdminCentralOverview from './pages/AdminCentralOverview';
 import AnnouncementEditorMedicoreAdmin from './pages/AnnouncementEditorMedicoreAdmin';
 import CardiologyServicesMedicoreHealth from './pages/CardiologyServicesMedicoreHealth';
+import ClinicalPrecision from './pages/ClinicalPrecision';
 import ContentManagerAdmin from './pages/ContentManagerAdmin';
 import ManageSuccessStoriesAdmin from './pages/ManageSuccessStoriesAdmin';
 import MedicoreHealthLandingPage from './pages/MedicoreHealthLandingPage';
@@ -22,7 +23,6 @@ const App = () => {
         <Link to="/cardiology_services_medicore_health" style={{ marginRight: '10px' }}>CardiologyServicesMedicoreHealth</Link>
         <Link to="/clinical_precision" style={{ marginRight: '10px' }}>ClinicalPrecision</Link>
         <Link to="/content_manager_admin" style={{ marginRight: '10px' }}>ContentManagerAdmin</Link>
-        <Link to="/high_quality_banner_image_for_a_hospital_success_story._a_smiling_patient_in_a" style={{ marginRight: '10px' }}>HighQualityBannerImageForAHospitalSuccessStoryASmilingPatientInA</Link>
         <Link to="/manage_success_stories_admin" style={{ marginRight: '10px' }}>ManageSuccessStoriesAdmin</Link>
         <Link to="/medicore_health_landing_page" style={{ marginRight: '10px' }}>MedicoreHealthLandingPage</Link>
         <Link to="/medicore_health_landing_page_with_announcements_enhanced_stories" style={{ marginRight: '10px' }}>MedicoreHealthLandingPageWithAnnouncementsEnhancedStories</Link>
@@ -36,7 +36,6 @@ const App = () => {
         <Route path="/cardiology_services_medicore_health" element={<CardiologyServicesMedicoreHealth />} />
         <Route path="/clinical_precision" element={<ClinicalPrecision />} />
         <Route path="/content_manager_admin" element={<ContentManagerAdmin />} />
-        <Route path="/high_quality_banner_image_for_a_hospital_success_story._a_smiling_patient_in_a" element={<HighQualityBannerImageForAHospitalSuccessStoryASmilingPatientInA />} />
         <Route path="/manage_success_stories_admin" element={<ManageSuccessStoriesAdmin />} />
         <Route path="/medicore_health_landing_page" element={<MedicoreHealthLandingPage />} />
         <Route path="/medicore_health_landing_page_with_announcements_enhanced_stories" element={<MedicoreHealthLandingPageWithAnnouncementsEnhancedStories />} />
