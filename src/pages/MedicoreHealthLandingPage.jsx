@@ -11,15 +11,17 @@ const MedicoreHealthLandingPage = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100', 'translate-y-0');
-          entry.target.classList.remove('opacity-0', 'translate-y-10');
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
         }
       });
     }, observerOptions);
 
     cardsRef.current.forEach((el, index) => {
       if (el) {
-        el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+        el.style.transition = 'all 0.7s ease-out';
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(40px)';
         el.style.transitionDelay = `${index * 100}ms`;
         observer.observe(el);
       }
@@ -41,75 +43,91 @@ const MedicoreHealthLandingPage = () => {
   return (
     <div>
       {/* TopNavBar */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
-        <nav className="flex justify-between items-center w-full px-margin-desktop max-w-[1280px] mx-auto h-20">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
-            <span className="font-headline-md text-headline-md font-bold text-primary">MediCore Health</span>
+      <header className="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top py-3 shadow-sm">
+        <div className="container">
+          <a className="navbar-brand d-flex align-items-center gap-2 text-primary fw-bold" href="#">
+            <span className="material-symbols-outlined fs-3" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
+            <span>MediCore Health</span>
+          </a>
+          <div className="collapse navbar-collapse justify-content-center">
+            <ul className="navbar-nav gap-4">
+              <li className="nav-item">
+                <a className="nav-link text-secondary" href="#services">Services</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link text-secondary" href="#">Doctors</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link text-secondary" href="#">About</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link text-secondary" href="#success-stories">Success Stories</a>
+              </li>
+            </ul>
           </div>
-          <div className="hidden md:flex items-center space-x-8">
-            <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#services">Services</a>
-            <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Doctors</a>
-            <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
-            <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#success-stories">Success Stories</a>
+          <div className="d-flex align-items-center gap-3">
+            <button className="btn btn-link text-secondary p-0"><span className="material-symbols-outlined">notifications</span></button>
+            <button className="btn btn-link text-secondary p-0"><span className="material-symbols-outlined">help</span></button>
+            <button className="btn btn-primary px-4 py-2 fw-bold">New Update</button>
           </div>
-          <div className="flex items-center gap-4">
-            <button className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">notifications</button>
-            <button className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">help</button>
-            <button className="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md hover:bg-primary-container transition-all active:scale-95">
-              New Update
-            </button>
-          </div>
-        </nav>
+        </div>
       </header>
 
-      <main className="pt-20">
+      <main style={{ paddingTop: '80px' }}>
         {/* Hero Section */}
-        <section className="relative min-h-[85vh] flex items-center overflow-hidden px-margin-mobile md:px-margin-desktop">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent z-10"></div>
-            <img className="w-full h-full object-cover" alt="Hero" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEWnuJYKiItVG-pC-AhOUA32JyzMkBSfpJ3DV7vqB2mwYPJZqO3QKTm3BOmvrtOZuTX5VOT4-nTyGtGaFNfNrbR-XOrT9sBrWgACQutDZF_0GFvfNFasgM_1Yxp3aZ2sYa1O5A1nkpI8op_2joN8QqA3tToSceu0UzTRFBOkb6ONdn6oLAqEwRsNsGBWXmjvmz2Nac-qmxh4b9CdeuV2f2isUN4uBRaJEN-DS2QDxIYQLhsoIILmACzA" />
+        <section className="position-relative d-flex align-items-center overflow-hidden" style={{ minHeight: '85vh' }}>
+          <div className="position-absolute top-0 bottom-0 start-0 w-100 z-0">
+            <div className="position-absolute w-100 h-100" style={{ background: 'linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%)', zIndex: 1 }}></div>
+            <img className="w-100 h-100 object-fit-cover" alt="Hero" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEWnuJYKiItVG-pC-AhOUA32JyzMkBSfpJ3DV7vqB2mwYPJZqO3QKTm3BOmvrtOZuTX5VOT4-nTyGtGaFNfNrbR-XOrT9sBrWgACQutDZF_0GFvfNFasgM_1Yxp3aZ2sYa1O5A1nkpI8op_2joN8QqA3tToSceu0UzTRFBOkb6ONdn6oLAqEwRsNsGBWXmjvmz2Nac-qmxh4b9CdeuV2f2isUN4uBRaJEN-DS2QDxIYQLhsoIILmACzA" />
           </div>
-          <div className="relative z-20 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container mb-6 animate-fade-in">
-              <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
-              <span className="text-label-sm font-label-sm">ISO 9001 CERTIFIED HEALTHCARE</span>
-            </div>
-            <h1 className="font-display-lg text-display-lg text-on-surface mb-6 leading-tight">
-              Healthcare You <br /><span className="text-primary">Can Trust</span>
-            </h1>
-            <p className="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
-              Experience world-class medical expertise combined with empathetic patient care. At MediCore, we prioritize your long-term wellness through innovation.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a className="bg-primary text-on-primary px-10 py-4 rounded-xl font-label-md text-lg hover:shadow-lg hover:shadow-primary/20 transition-all active:scale-95 flex items-center gap-2" href="#services">
-                Explore Services
-                <span className="material-symbols-outlined">arrow_forward</span>
-              </a>
-              <button className="border-2 border-primary text-primary px-10 py-4 rounded-xl font-label-md text-lg hover:bg-primary-fixed transition-all">
-                Learn More
-              </button>
-            </div>
-          </div>
-          {/* Stats Floating Card */}
-          <div className="hidden lg:block absolute right-margin-desktop bottom-1/4 glass-effect p-8 rounded-3xl w-80 shadow-2xl">
-            <div className="flex flex-col gap-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
-                  <span className="material-symbols-outlined">group</span>
+          
+          <div className="container position-relative" style={{ zIndex: 2 }}>
+            <div className="row">
+              <div className="col-lg-7">
+                <div className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-light text-dark border mb-4">
+                  <span className="material-symbols-outlined text-success" style={{ fontSize: '18px', fontVariationSettings: "'FILL' 1" }}>verified</span>
+                  <span className="small fw-bold tracking-wide">ISO 9001 CERTIFIED HEALTHCARE</span>
                 </div>
-                <div>
-                  <div className="text-headline-md font-bold">15k+</div>
-                  <div className="text-body-sm text-on-surface-variant">Patients Annually</div>
+                <h1 className="display-3 fw-bold text-dark mb-4 lh-sm">
+                  Healthcare You <br /><span className="text-primary">Can Trust</span>
+                </h1>
+                <p className="lead text-secondary mb-5 pe-lg-5">
+                  Experience world-class medical expertise combined with empathetic patient care. At MediCore, we prioritize your long-term wellness through innovation.
+                </p>
+                <div className="d-flex flex-wrap gap-3">
+                  <a className="btn btn-primary btn-lg d-flex align-items-center gap-2 px-5 py-3 fw-bold rounded-3" href="#services">
+                    Explore Services
+                    <span className="material-symbols-outlined">arrow_forward</span>
+                  </a>
+                  <button className="btn btn-outline-primary btn-lg px-5 py-3 fw-bold rounded-3">
+                    Learn More
+                  </button>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
-                  <span className="material-symbols-outlined">rewarded_ads</span>
+            </div>
+          </div>
+          
+          {/* Stats Floating Card */}
+          <div className="d-none d-lg-block position-absolute end-0 me-5" style={{ bottom: '20%', zIndex: 2 }}>
+            <div className="card shadow-lg border-0 rounded-4" style={{ width: '320px', background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(10px)' }}>
+              <div className="card-body p-4 d-flex flex-column gap-4">
+                <div className="d-flex align-items-center gap-3">
+                  <div className="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center text-primary" style={{ width: '48px', height: '48px' }}>
+                    <span className="material-symbols-outlined">group</span>
+                  </div>
+                  <div>
+                    <div className="h4 fw-bold mb-0">15k+</div>
+                    <div className="small text-muted">Patients Annually</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-headline-md font-bold">99%</div>
-                  <div className="text-body-sm text-on-surface-variant">Satisfaction Rate</div>
+                <div className="d-flex align-items-center gap-3">
+                  <div className="rounded-circle bg-success bg-opacity-10 d-flex align-items-center justify-content-center text-success" style={{ width: '48px', height: '48px' }}>
+                    <span className="material-symbols-outlined">rewarded_ads</span>
+                  </div>
+                  <div>
+                    <div className="h4 fw-bold mb-0">99%</div>
+                    <div className="small text-muted">Satisfaction Rate</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -117,122 +135,153 @@ const MedicoreHealthLandingPage = () => {
         </section>
 
         {/* Services Section (Bento Grid) */}
-        <section className="py-24 bg-surface-container-lowest px-margin-mobile md:px-margin-desktop" id="services">
-          <div className="max-w-[1280px] mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">Specialized Medical Care</h2>
-              <p className="text-on-surface-variant max-w-2xl mx-auto">Our multidisciplinary teams use advanced technology to provide comprehensive solutions across all major healthcare fields.</p>
+        <section className="py-5 bg-light" id="services">
+          <div className="container py-5">
+            <div className="text-center mb-5">
+              <h2 className="display-6 fw-bold text-dark mb-3">Specialized Medical Care</h2>
+              <p className="lead text-muted col-lg-8 mx-auto">Our multidisciplinary teams use advanced technology to provide comprehensive solutions across all major healthcare fields.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+            
+            <div className="row g-4">
               {/* Cardiology (Large) */}
-              <div ref={addToRefs} className="md:col-span-2 bento-card bg-primary-container/10 border border-primary/10 rounded-3xl p-8 relative overflow-hidden group">
-                <span className="material-symbols-outlined text-primary text-5xl mb-6">cardiology</span>
-                <h3 className="font-headline-md text-headline-md mb-2">Cardiology</h3>
-                <p className="text-on-surface-variant mb-6 max-w-sm">Heart health excellence with state-of-the-art diagnostic labs and minimally invasive surgical solutions.</p>
-                <a className="inline-flex items-center text-primary font-label-md gap-2 group-hover:gap-4 transition-all" href="#">
-                  View Department <span className="material-symbols-outlined">east</span>
-                </a>
-                <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <span className="material-symbols-outlined text-[180px]">monitor_heart</span>
+              <div className="col-12 col-md-8">
+                <div ref={addToRefs} className="card h-100 bg-primary bg-opacity-10 border-0 rounded-4 overflow-hidden position-relative p-4 p-lg-5">
+                  <div className="position-relative" style={{ zIndex: 2 }}>
+                    <span className="material-symbols-outlined text-primary display-4 mb-4">cardiology</span>
+                    <h3 className="h2 fw-bold text-dark mb-3">Cardiology</h3>
+                    <p className="text-secondary mb-4 fs-5 w-75">Heart health excellence with state-of-the-art diagnostic labs and minimally invasive surgical solutions.</p>
+                    <a className="btn btn-link text-primary text-decoration-none p-0 fw-bold fs-5 d-flex align-items-center gap-2" href="#">
+                      View Department <span className="material-symbols-outlined">east</span>
+                    </a>
+                  </div>
+                  <div className="position-absolute end-0 bottom-0 opacity-25 me-n4 mb-n4" style={{ zIndex: 1 }}>
+                    <span className="material-symbols-outlined text-primary" style={{ fontSize: '200px' }}>monitor_heart</span>
+                  </div>
                 </div>
               </div>
-              {/* Neurology */}
-              <div ref={addToRefs} className="bento-card bg-surface border border-outline-variant rounded-3xl p-8 flex flex-col justify-between">
-                <div>
-                  <span className="material-symbols-outlined text-secondary text-4xl mb-6">psychology</span>
-                  <h3 className="font-headline-md text-headline-md mb-2">Neurology</h3>
-                  <p className="text-body-sm text-on-surface-variant">Expert management of complex neurological disorders and brain health.</p>
+              
+              <div className="col-12 col-md-4 d-flex flex-column gap-4">
+                {/* Neurology */}
+                <div ref={addToRefs} className="card h-100 border-0 shadow-sm rounded-4 p-4 d-flex flex-column justify-content-between">
+                  <div>
+                    <span className="material-symbols-outlined text-info display-5 mb-3">psychology</span>
+                    <h3 className="h4 fw-bold mb-2">Neurology</h3>
+                    <p className="text-muted small">Expert management of complex neurological disorders and brain health.</p>
+                  </div>
+                  <a className="mt-3 text-secondary text-decoration-none align-self-start" href="#">
+                    <span className="material-symbols-outlined fs-3">arrow_circle_right</span>
+                  </a>
                 </div>
-                <a className="mt-8 material-symbols-outlined text-on-surface-variant hover:text-primary" href="#">arrow_circle_right</a>
-              </div>
-              {/* Pediatrics */}
-              <div ref={addToRefs} className="bento-card bg-surface border border-outline-variant rounded-3xl p-8 flex flex-col justify-between">
-                <div>
-                  <span className="material-symbols-outlined text-on-error-container text-4xl mb-6">child_care</span>
-                  <h3 className="font-headline-md text-headline-md mb-2">Pediatrics</h3>
-                  <p className="text-body-sm text-on-surface-variant">Compassionate specialized care for our youngest patients from birth through adolescence.</p>
+                
+                {/* Pediatrics */}
+                <div ref={addToRefs} className="card h-100 border-0 shadow-sm rounded-4 p-4 d-flex flex-column justify-content-between">
+                  <div>
+                    <span className="material-symbols-outlined text-danger display-5 mb-3">child_care</span>
+                    <h3 className="h4 fw-bold mb-2">Pediatrics</h3>
+                    <p className="text-muted small">Compassionate specialized care for our youngest patients from birth through adolescence.</p>
+                  </div>
+                  <a className="mt-3 text-secondary text-decoration-none align-self-start" href="#">
+                    <span className="material-symbols-outlined fs-3">arrow_circle_right</span>
+                  </a>
                 </div>
-                <a className="mt-8 material-symbols-outlined text-on-surface-variant hover:text-primary" href="#">arrow_circle_right</a>
               </div>
+
               {/* Additional Services */}
-              <div ref={addToRefs} className="bento-card bg-surface border border-outline-variant rounded-3xl p-8">
-                <span className="material-symbols-outlined text-primary text-3xl mb-4">emergency</span>
-                <h4 className="font-label-md text-label-md mb-2">24/7 Emergency</h4>
-                <p className="text-body-sm text-on-surface-variant">Rapid response unit.</p>
-              </div>
-              <div ref={addToRefs} className="bento-card bg-surface border border-outline-variant rounded-3xl p-8">
-                <span className="material-symbols-outlined text-primary text-3xl mb-4">biotech</span>
-                <h4 className="font-label-md text-label-md mb-2">Advanced Labs</h4>
-                <p className="text-body-sm text-on-surface-variant">High-precision diagnostics.</p>
-              </div>
-              <div ref={addToRefs} className="bento-card bg-secondary-container text-on-secondary-container rounded-3xl p-8 md:col-span-2 flex items-center justify-between">
-                <div>
-                  <h3 className="font-headline-md text-headline-md mb-2">Looking for something else?</h3>
-                  <p className="font-body-sm opacity-90">Browse our directory of over 40 specialized clinics.</p>
+              <div className="col-12 col-md-3">
+                <div ref={addToRefs} className="card h-100 border-0 shadow-sm rounded-4 p-4">
+                  <span className="material-symbols-outlined text-primary display-6 mb-3">emergency</span>
+                  <h4 className="h5 fw-bold mb-2">24/7 Emergency</h4>
+                  <p className="text-muted small mb-0">Rapid response unit.</p>
                 </div>
-                <button className="bg-on-secondary-container text-secondary-container px-6 py-3 rounded-xl font-label-md">Full Directory</button>
+              </div>
+              
+              <div className="col-12 col-md-3">
+                <div ref={addToRefs} className="card h-100 border-0 shadow-sm rounded-4 p-4">
+                  <span className="material-symbols-outlined text-primary display-6 mb-3">biotech</span>
+                  <h4 className="h5 fw-bold mb-2">Advanced Labs</h4>
+                  <p className="text-muted small mb-0">High-precision diagnostics.</p>
+                </div>
+              </div>
+              
+              <div className="col-12 col-md-6">
+                <div ref={addToRefs} className="card h-100 bg-secondary bg-opacity-10 border-0 rounded-4 p-4 p-lg-5 d-flex flex-row align-items-center justify-content-between">
+                  <div>
+                    <h3 className="h4 fw-bold text-dark mb-2">Looking for something else?</h3>
+                    <p className="text-muted mb-0">Browse our directory of over 40 specialized clinics.</p>
+                  </div>
+                  <button className="btn btn-secondary fw-bold px-4 py-2 ms-3 rounded-3 text-nowrap">Full Directory</button>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Success Stories Section */}
-        <section className="py-24 bg-surface px-margin-mobile md:px-margin-desktop overflow-hidden" id="success-stories">
-          <div className="max-w-[1280px] mx-auto">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <section className="py-5 bg-white overflow-hidden" id="success-stories">
+          <div className="container py-5">
+            <div className="d-flex flex-column flex-md-row align-items-md-end justify-content-between mb-5 gap-4">
               <div>
-                <h2 className="font-headline-lg text-headline-lg text-on-surface mb-2">Success Stories</h2>
-                <p className="text-on-surface-variant">Real journeys of recovery and hope from our patients.</p>
+                <h2 className="display-6 fw-bold text-dark mb-2">Success Stories</h2>
+                <p className="lead text-muted mb-0">Real journeys of recovery and hope from our patients.</p>
               </div>
-              <div className="flex gap-2">
-                <button className="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-variant transition-colors">
+              <div className="d-flex gap-2">
+                <button className="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center" style={{ width: '48px', height: '48px' }}>
                   <span className="material-symbols-outlined">chevron_left</span>
                 </button>
-                <button className="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-variant transition-colors">
+                <button className="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center" style={{ width: '48px', height: '48px' }}>
                   <span className="material-symbols-outlined">chevron_right</span>
                 </button>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div className="row g-4">
               {/* Testimonial 1 */}
-              <div ref={addToRefs} className="bg-surface-container rounded-[2rem] p-8 flex flex-col h-full">
-                <div className="mb-8">
-                  <span className="material-symbols-outlined text-primary text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
-                </div>
-                <p className="font-body-lg text-body-lg text-on-surface mb-8 italic">"The cardiac team at MediCore didn't just save my life; they gave me back my future. The recovery plan was personalized and surprisingly easy to follow."</p>
-                <div className="mt-auto flex items-center gap-4">
-                  <img className="w-14 h-14 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500" alt="Patient" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHHUANWi0i-O2NditsVocXvRqIOY4Kma1ZrI_8r53CMVWtVEDvf21jpiPTalU4x0SJE3jO9ej5ep2A5S2H00WsA825p9401KlGm-tEZt_pmyDOo2iTZ6dmpKNSwyWDfwOaCoqMO-x_N8Z4Emu_5oAOkirB8-wEKxB8tM_n_ByfifCWaUwA8B_H_WEB9g0yVPD5-zz5uHgJ_GgbW9qPmYBH_UPraA7Hd9_ZfjzEBz4376vv4pY-_QwsRQ" />
-                  <div>
-                    <div className="font-label-md text-label-md">Robert Henderson</div>
-                    <div className="text-body-sm text-on-surface-variant">Cardiology Patient</div>
+              <div className="col-12 col-md-4">
+                <div ref={addToRefs} className="card h-100 border-0 bg-light rounded-4 p-4 p-lg-5 d-flex flex-column">
+                  <div className="mb-4">
+                    <span className="material-symbols-outlined text-primary display-4" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
+                  </div>
+                  <p className="fs-5 text-dark mb-5 fst-italic flex-grow-1">"The cardiac team at MediCore didn't just save my life; they gave me back my future. The recovery plan was personalized and surprisingly easy to follow."</p>
+                  <div className="d-flex align-items-center gap-3 mt-auto">
+                    <img className="rounded-circle object-fit-cover shadow-sm" style={{ width: '56px', height: '56px' }} alt="Patient" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHHUANWi0i-O2NditsVocXvRqIOY4Kma1ZrI_8r53CMVWtVEDvf21jpiPTalU4x0SJE3jO9ej5ep2A5S2H00WsA825p9401KlGm-tEZt_pmyDOo2iTZ6dmpKNSwyWDfwOaCoqMO-x_N8Z4Emu_5oAOkirB8-wEKxB8tM_n_ByfifCWaUwA8B_H_WEB9g0yVPD5-zz5uHgJ_GgbW9qPmYBH_UPraA7Hd9_ZfjzEBz4376vv4pY-_QwsRQ" />
+                    <div>
+                      <div className="fw-bold">Robert Henderson</div>
+                      <div className="small text-muted">Cardiology Patient</div>
+                    </div>
                   </div>
                 </div>
               </div>
+              
               {/* Testimonial 2 */}
-              <div ref={addToRefs} className="bg-surface-container rounded-[2rem] p-8 flex flex-col h-full">
-                <div className="mb-8">
-                  <span className="material-symbols-outlined text-primary text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
-                </div>
-                <p className="font-body-lg text-body-lg text-on-surface mb-8 italic">"Finding specialized pediatric care for my daughter was our top priority. The doctors here treat her like their own, with so much patience and joy."</p>
-                <div className="mt-auto flex items-center gap-4">
-                  <img className="w-14 h-14 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500" alt="Patient" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD05Qrm-ChNDO6bs_Iz7Ynl-mElOy339wJkfAn_eh_KqbV6rbnIF24j-RSjTBKfRabtI2luKQHvqNff6F6JYVFFPMmYtCTleRKnkKwN7Hbr2Hexz5zWZ3nAU_TEx0je7lu5_kcLjhCS-qnrsXN2r2uMY8rmtHxadTgWB1zVb5u7BGiZgSjwILn5TwUlD2wb5A-ZPFHXXVEyHZ5YDXCq2taZs4BLIrnpIG4_upK75Rtij9zsW2twPzapiA" />
-                  <div>
-                    <div className="font-label-md text-label-md">Sarah Jenkins</div>
-                    <div className="text-body-sm text-on-surface-variant">Mother of Pediatrics Patient</div>
+              <div className="col-12 col-md-4">
+                <div ref={addToRefs} className="card h-100 border-0 bg-light rounded-4 p-4 p-lg-5 d-flex flex-column">
+                  <div className="mb-4">
+                    <span className="material-symbols-outlined text-primary display-4" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
+                  </div>
+                  <p className="fs-5 text-dark mb-5 fst-italic flex-grow-1">"Finding specialized pediatric care for my daughter was our top priority. The doctors here treat her like their own, with so much patience and joy."</p>
+                  <div className="d-flex align-items-center gap-3 mt-auto">
+                    <img className="rounded-circle object-fit-cover shadow-sm" style={{ width: '56px', height: '56px' }} alt="Patient" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD05Qrm-ChNDO6bs_Iz7Ynl-mElOy339wJkfAn_eh_KqbV6rbnIF24j-RSjTBKfRabtI2luKQHvqNff6F6JYVFFPMmYtCTleRKnkKwN7Hbr2Hexz5zWZ3nAU_TEx0je7lu5_kcLjhCS-qnrsXN2r2uMY8rmtHxadTgWB1zVb5u7BGiZgSjwILn5TwUlD2wb5A-ZPFHXXVEyHZ5YDXCq2taZs4BLIrnpIG4_upK75Rtij9zsW2twPzapiA" />
+                    <div>
+                      <div className="fw-bold">Sarah Jenkins</div>
+                      <div className="small text-muted">Mother of Pediatrics Patient</div>
+                    </div>
                   </div>
                 </div>
               </div>
+              
               {/* Testimonial 3 */}
-              <div ref={addToRefs} className="bg-surface-container rounded-[2rem] p-8 flex flex-col h-full">
-                <div className="mb-8">
-                  <span className="material-symbols-outlined text-primary text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
-                </div>
-                <p className="font-body-lg text-body-lg text-on-surface mb-8 italic">"After years of chronic back pain, the neurology department finally identified the root cause. I am now 6 months pain-free and back to hiking."</p>
-                <div className="mt-auto flex items-center gap-4">
-                  <img className="w-14 h-14 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-500" alt="Patient" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLMARPYBmIMGZXAvLbvSDIB9h78N6z2WhSe3_geHmNHwCm2ZN6M_BtpZ7ykopTLyPSXN3pzSaOjyKMtYR7lziuOHzoghq0qo7pW4hzww6qPND4nWeRf7_fIjHOHa-q448wuklbNUJAHcrD858wnCELX64TlTZIwOwulH5kU__evZ0C6FiJnOKgWiTmfJpAIMm1EzKtjvhrNzwQGdWwdG3baquUgpkYcI468Vhtw8-WPWmcWvODeCnbdA" />
-                  <div>
-                    <div className="font-label-md text-label-md">Elena Rodriguez</div>
-                    <div className="text-body-sm text-on-surface-variant">Neurology Patient</div>
+              <div className="col-12 col-md-4">
+                <div ref={addToRefs} className="card h-100 border-0 bg-light rounded-4 p-4 p-lg-5 d-flex flex-column">
+                  <div className="mb-4">
+                    <span className="material-symbols-outlined text-primary display-4" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
+                  </div>
+                  <p className="fs-5 text-dark mb-5 fst-italic flex-grow-1">"After years of chronic back pain, the neurology department finally identified the root cause. I am now 6 months pain-free and back to hiking."</p>
+                  <div className="d-flex align-items-center gap-3 mt-auto">
+                    <img className="rounded-circle object-fit-cover shadow-sm" style={{ width: '56px', height: '56px' }} alt="Patient" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLMARPYBmIMGZXAvLbvSDIB9h78N6z2WhSe3_geHmNHwCm2ZN6M_BtpZ7ykopTLyPSXN3pzSaOjyKMtYR7lziuOHzoghq0qo7pW4hzww6qPND4nWeRf7_fIjHOHa-q448wuklbNUJAHcrD858wnCELX64TlTZIwOwulH5kU__evZ0C6FiJnOKgWiTmfJpAIMm1EzKtjvhrNzwQGdWwdG3baquUgpkYcI468Vhtw8-WPWmcWvODeCnbdA" />
+                    <div>
+                      <div className="fw-bold">Elena Rodriguez</div>
+                      <div className="small text-muted">Neurology Patient</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -241,53 +290,59 @@ const MedicoreHealthLandingPage = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
-          <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">Get in Touch</h2>
-              <p className="text-body-lg text-on-surface-variant mb-10">We are here to help you 24/7. Whether you have questions about our services or need to locate a specific department, our team is ready.</p>
-              <div className="space-y-8">
-                <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm border border-outline-variant">
-                    <span className="material-symbols-outlined text-primary">location_on</span>
+        <section className="py-5 bg-light border-top">
+          <div className="container py-5">
+            <div className="row align-items-center g-5">
+              <div className="col-lg-6">
+                <h2 className="display-6 fw-bold text-dark mb-4">Get in Touch</h2>
+                <p className="lead text-muted mb-5 pe-lg-4">We are here to help you 24/7. Whether you have questions about our services or need to locate a specific department, our team is ready.</p>
+                <div className="d-flex flex-column gap-4">
+                  <div className="d-flex align-items-start gap-4">
+                    <div className="rounded-4 bg-white shadow-sm border d-flex align-items-center justify-content-center text-primary" style={{ width: '64px', height: '64px', flexShrink: 0 }}>
+                      <span className="material-symbols-outlined fs-3">location_on</span>
+                    </div>
+                    <div>
+                      <div className="fw-bold fs-5 mb-1">Main Campus</div>
+                      <div className="text-muted">1200 Healthcare Way, Medical District<br />Chicago, IL 60611</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-label-md text-label-md">Main Campus</div>
-                    <div className="text-on-surface-variant">1200 Healthcare Way, Medical District<br />Chicago, IL 60611</div>
+                  
+                  <div className="d-flex align-items-start gap-4">
+                    <div className="rounded-4 bg-white shadow-sm border d-flex align-items-center justify-content-center text-primary" style={{ width: '64px', height: '64px', flexShrink: 0 }}>
+                      <span className="material-symbols-outlined fs-3">call</span>
+                    </div>
+                    <div>
+                      <div className="fw-bold fs-5 mb-1">Phone Support</div>
+                      <div className="text-muted">General: (555) 123-4567<br />Emergency: (555) 911-0000</div>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm border border-outline-variant">
-                    <span className="material-symbols-outlined text-primary">call</span>
-                  </div>
-                  <div>
-                    <div className="font-label-md text-label-md">Phone Support</div>
-                    <div className="text-on-surface-variant">General: (555) 123-4567<br />Emergency: (555) 911-0000</div>
-                  </div>
-                </div>
-                <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm border border-outline-variant">
-                    <span className="material-symbols-outlined text-primary">mail</span>
-                  </div>
-                  <div>
-                    <div className="font-label-md text-label-md">Email Inquiries</div>
-                    <div className="text-on-surface-variant">contact@medicorehealth.com</div>
+                  
+                  <div className="d-flex align-items-start gap-4">
+                    <div className="rounded-4 bg-white shadow-sm border d-flex align-items-center justify-content-center text-primary" style={{ width: '64px', height: '64px', flexShrink: 0 }}>
+                      <span className="material-symbols-outlined fs-3">mail</span>
+                    </div>
+                    <div>
+                      <div className="fw-bold fs-5 mb-1">Email Inquiries</div>
+                      <div className="text-muted">contact@medicorehealth.com</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white relative group">
-              <img className="w-full h-full object-cover" alt="Map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzWz9xmKpHNcBzqw_AEcg7BJiSmiesIV8ErLS5zJVl2puyFVxHMhs03iDkOz4o7HfWVkmGw9T6e4WFRxJ6eqEjFk9f4UJPXmtZ1aQmibuppZr1gJYuvFHPny1lh0XgHkwRb0F6ri1-hWsVFi_TUdCnnujtjr1fWCD6aJqiQ3rGRm28dXw9hcOy28hshQQEf3LVq4WswrWg58EZixOMdLtwbZQL8LwSYCKIMhPwfWjubZkWHQBYTJ6Lqw" />
-              <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
-              <div className="absolute bottom-6 left-6 right-6 glass-effect p-6 rounded-2xl">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <div className="font-label-md">MediCore Main Tower</div>
-                    <div className="text-body-sm opacity-80">Free parking for patients</div>
+              
+              <div className="col-lg-6">
+                <div className="card border-0 rounded-4 shadow-lg overflow-hidden position-relative" style={{ height: '500px' }}>
+                  <img className="w-100 h-100 object-fit-cover" alt="Map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzWz9xmKpHNcBzqw_AEcg7BJiSmiesIV8ErLS5zJVl2puyFVxHMhs03iDkOz4o7HfWVkmGw9T6e4WFRxJ6eqEjFk9f4UJPXmtZ1aQmibuppZr1gJYuvFHPny1lh0XgHkwRb0F6ri1-hWsVFi_TUdCnnujtjr1fWCD6aJqiQ3rGRm28dXw9hcOy28hshQQEf3LVq4WswrWg58EZixOMdLtwbZQL8LwSYCKIMhPwfWjubZkWHQBYTJ6Lqw" />
+                  <div className="position-absolute bottom-0 start-0 end-0 p-4 m-3 rounded-4 shadow-sm" style={{ background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(5px)' }}>
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div>
+                        <div className="fw-bold text-dark">MediCore Main Tower</div>
+                        <div className="small text-muted">Free parking for patients</div>
+                      </div>
+                      <button className="btn btn-primary rounded-circle d-flex align-items-center justify-content-center shadow" style={{ width: '48px', height: '48px' }}>
+                        <span className="material-symbols-outlined">directions</span>
+                      </button>
+                    </div>
                   </div>
-                  <button className="bg-primary text-white p-3 rounded-full hover:scale-110 transition-transform">
-                    <span className="material-symbols-outlined">directions</span>
-                  </button>
                 </div>
               </div>
             </div>
@@ -296,28 +351,36 @@ const MedicoreHealthLandingPage = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-surface-container-highest border-t border-outline-variant">
-        <div className="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-xl w-full max-w-[1280px] mx-auto">
-          <div className="mb-8 md:mb-0">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
-              <span className="font-label-md text-label-md font-bold text-on-surface">MediCore Health</span>
+      <footer className="bg-dark text-white pt-5 pb-4">
+        <div className="container mt-3">
+          <div className="row align-items-center">
+            <div className="col-md-4 text-center text-md-start mb-4 mb-md-0">
+              <div className="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mb-3">
+                <span className="material-symbols-outlined text-primary fs-3" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
+                <span className="h4 fw-bold mb-0">MediCore Health</span>
+              </div>
+              <p className="text-white-50 small mb-0">© 2024 MediCore Healthcare Systems. All rights reserved.</p>
             </div>
-            <p className="font-body-sm text-body-sm text-on-surface-variant">© 2024 MediCore Healthcare Systems. All rights reserved.</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-4">
-            <a className="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-opacity hover:opacity-90" href="#">Privacy Policy</a>
-            <a className="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-opacity hover:opacity-90" href="#">Terms of Service</a>
-            <a className="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-opacity hover:opacity-90" href="#">Contact Support</a>
-            <a className="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-opacity hover:opacity-90" href="#">Security</a>
-          </div>
-          <div className="mt-8 md:mt-0 flex gap-4">
-            <button className="w-10 h-10 rounded-full bg-surface flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-              <span className="material-symbols-outlined text-xl">share</span>
-            </button>
-            <button className="w-10 h-10 rounded-full bg-surface flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-              <span className="material-symbols-outlined text-xl">language</span>
-            </button>
+            
+            <div className="col-md-5 mb-4 mb-md-0">
+              <ul className="list-inline text-center mb-0 d-flex flex-wrap justify-content-center gap-4">
+                <li className="list-inline-item m-0"><a className="text-white-50 text-decoration-none hover-white" href="#">Privacy Policy</a></li>
+                <li className="list-inline-item m-0"><a className="text-white-50 text-decoration-none hover-white" href="#">Terms of Service</a></li>
+                <li className="list-inline-item m-0"><a className="text-white-50 text-decoration-none hover-white" href="#">Contact Support</a></li>
+                <li className="list-inline-item m-0"><a className="text-white-50 text-decoration-none hover-white" href="#">Security</a></li>
+              </ul>
+            </div>
+            
+            <div className="col-md-3 text-center text-md-end">
+              <div className="d-inline-flex gap-3">
+                <button className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center p-0" style={{ width: '40px', height: '40px' }}>
+                  <span className="material-symbols-outlined fs-5">share</span>
+                </button>
+                <button className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center p-0" style={{ width: '40px', height: '40px' }}>
+                  <span className="material-symbols-outlined fs-5">language</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
