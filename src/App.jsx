@@ -6,7 +6,6 @@ import AnnouncementEditorMedicoreAdmin from './pages/AnnouncementEditorMedicoreA
 import CardiologyServicesMedicoreHealth from './pages/CardiologyServicesMedicoreHealth';
 import ClinicalPrecision from './pages/ClinicalPrecision';
 import ContentManagerAdmin from './pages/ContentManagerAdmin';
-import HighQualityBannerImageForAHospitalSuccessStoryASmilingPatientInA from './pages/HighQualityBannerImageForAHospitalSuccessStoryASmilingPatientInA';
 import ManageSuccessStoriesAdmin from './pages/ManageSuccessStoriesAdmin';
 import MedicoreHealthLandingPage from './pages/MedicoreHealthLandingPage';
 import MedicoreHealthLandingPageWithAnnouncementsEnhancedStories from './pages/MedicoreHealthLandingPageWithAnnouncementsEnhancedStories';
