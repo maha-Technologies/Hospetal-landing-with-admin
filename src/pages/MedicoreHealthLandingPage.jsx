@@ -43,7 +43,7 @@ const MedicoreHealthLandingPage = () => {
   return (
     <div>
       {/* TopNavBar */}
-      <header className="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top py-3 shadow-sm">
+      <header className="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3 shadow-sm">
         <div className="container">
           <a className="navbar-brand d-flex align-items-center gap-2 text-primary fw-bold" href="#">
             <span className="material-symbols-outlined fs-3" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
@@ -73,7 +73,7 @@ const MedicoreHealthLandingPage = () => {
         </div>
       </header>
 
-      <main style={{ paddingTop: '80px' }}>
+      <main>
         {/* Hero Section */}
         <section className="position-relative d-flex align-items-center overflow-hidden" style={{ minHeight: '85vh' }}>
           <div className="position-absolute top-0 bottom-0 start-0 w-100 z-0">

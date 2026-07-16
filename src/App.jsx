@@ -1,78 +1,64 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Public Zone Components
-import MedicoreHealthLandingPage from './pages/MedicoreHealthLandingPage';
-import MedicoreHealthLandingPageWithAnnouncementsEnhancedStories from './pages/MedicoreHealthLandingPageWithAnnouncementsEnhancedStories';
-import CardiologyServicesMedicoreHealth from './pages/CardiologyServicesMedicoreHealth';
-import ClinicalPrecision from './pages/ClinicalPrecision';
-import OurDoctorsMedicoreHealth from './pages/OurDoctorsMedicoreHealth';
+// ── Public Zone ──────────────────────────────────────────────
+import Home              from './public/Home';
+import Services          from './public/Services';
+import About             from './public/About';
+import Cardiology        from './public/Cardiology';
+import ClinicalPrecision from './public/ClinicalPrecision';
+import Doctors           from './public/Doctors';
 
-// Admin Zone Components
-import AdminCentralOverview from './pages/AdminCentralOverview';
-import AnnouncementEditorMedicoreAdmin from './pages/AnnouncementEditorMedicoreAdmin';
-import ContentManagerAdmin from './pages/ContentManagerAdmin';
+// ── Admin Zone ───────────────────────────────────────────────
+import AdminLayout               from './admin/AdminLayout';
+import Dashboard                 from './admin/Dashboard';
+import ContentManagerAdmin       from './pages/ContentManagerAdmin';
+import AnnouncementEditorAdmin   from './pages/AnnouncementEditorMedicoreAdmin';
+import StaffDirectoryAdmin       from './pages/StaffDirectoryMedicoreAdmin';
 import ManageSuccessStoriesAdmin from './pages/ManageSuccessStoriesAdmin';
-import StaffDirectoryMedicoreAdmin from './pages/StaffDirectoryMedicoreAdmin';
-import SuccessStoryEditorMedicoreAdmin from './pages/SuccessStoryEditorMedicoreAdmin';
+import SuccessStoryEditorAdmin   from './pages/SuccessStoryEditorMedicoreAdmin';
 
-const DebugNavigation = () => {
-  const location = useLocation();
-  // Don't show debug nav if they want a clean view, but for development we keep it at the very top.
-  // We can make it collapsible or just a small bar.
-  return (
-    <div className="bg-light border-bottom py-2 px-3 d-flex flex-wrap gap-2 align-items-center" style={{ fontSize: '12px', zIndex: 9999, position: 'relative' }}>
-      <strong className="text-muted me-2">DEV NAV:</strong>
-      <span className="text-primary fw-bold">Public:</span>
-      <Link className="text-decoration-none text-secondary hover-primary" to="/">Home</Link>
-      <Link className="text-decoration-none text-secondary hover-primary" to="/doctors">Doctors</Link>
-      <Link className="text-decoration-none text-secondary hover-primary" to="/cardiology">Cardiology</Link>
-      <Link className="text-decoration-none text-secondary hover-primary" to="/clinical_precision">Clinical Precision</Link>
-      <Link className="text-decoration-none text-secondary hover-primary" to="/enhanced_landing">Enhanced Home</Link>
-      
-      <span className="text-danger fw-bold ms-3">Admin:</span>
-      <Link className="text-decoration-none text-secondary hover-danger" to="/admin">Dashboard</Link>
-      <Link className="text-decoration-none text-secondary hover-danger" to="/admin/content">Content</Link>
-      <Link className="text-decoration-none text-secondary hover-danger" to="/admin/staff">Staff</Link>
-      <Link className="text-decoration-none text-secondary hover-danger" to="/admin/announcements">Announcements</Link>
-      <Link className="text-decoration-none text-secondary hover-danger" to="/admin/success_stories">Success Stories</Link>
-      <Link className="text-decoration-none text-secondary hover-danger" to="/admin/success_story_editor">Story Editor</Link>
-    </div>
-  );
-};
+const NotFound = () => (
+  <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 16, background: '#f8fafc' }}>
+    <div style={{ fontSize: 80, fontWeight: 900, color: '#e2e8f0' }}>404</div>
+    <h2 style={{ color: '#0f172a', margin: 0 }}>Page Not Found</h2>
+    <p style={{ color: '#64748b' }}>The page you're looking for doesn't exist.</p>
+    <a href="/" style={{ background: '#1a73e8', color: '#fff', padding: '12px 28px', borderRadius: 9999, textDecoration: 'none', fontWeight: 600 }}>
+      Return Home
+    </a>
+  </div>
+);
 
 const App = () => {
   return (
     <Router>
-      <DebugNavigation />
-      
       <Routes>
-        {/* ========================================== */}
-        {/* ZONE A: PUBLIC PATIENT PORTAL              */}
-        {/* ========================================== */}
-        <Route path="/" element={<MedicoreHealthLandingPage />} />
-        <Route path="/enhanced_landing" element={<MedicoreHealthLandingPageWithAnnouncementsEnhancedStories />} />
-        <Route path="/cardiology" element={<CardiologyServicesMedicoreHealth />} />
-        <Route path="/clinical_precision" element={<ClinicalPrecision />} />
-        <Route path="/doctors" element={<OurDoctorsMedicoreHealth />} />
+        {/* ═══════════════════════════════════════
+            ZONE A — PUBLIC PATIENT PORTAL
+            ═══════════════════════════════════════ */}
+        <Route path="/"                   element={<Home />} />
+        <Route path="/services"           element={<Services />} />
+        <Route path="/about"              element={<About />} />
+        <Route path="/cardiology"         element={<Cardiology />} />
+        <Route path="/clinical-precision" element={<ClinicalPrecision />} />
+        <Route path="/doctors"            element={<Doctors />} />
 
-        {/* ========================================== */}
-        {/* ZONE B: ADMIN CENTRAL BACKEND              */}
-        {/* ========================================== */}
-        <Route path="/admin" element={<AdminCentralOverview />} />
-        <Route path="/admin/announcements" element={<AnnouncementEditorMedicoreAdmin />} />
-        <Route path="/admin/content" element={<ContentManagerAdmin />} />
-        <Route path="/admin/success_stories" element={<ManageSuccessStoriesAdmin />} />
-        <Route path="/admin/success_story_editor" element={<SuccessStoryEditorMedicoreAdmin />} />
-        <Route path="/admin/staff" element={<StaffDirectoryMedicoreAdmin />} />
-        
-        {/* Fallback */}
-        <Route path="*" element={
-          <div className="container mt-5 text-center">
-            <h2>404 - Page Not Found</h2>
-            <Link to="/" className="btn btn-primary mt-3">Return to Home</Link>
-          </div>
-        } />
+        {/* ═══════════════════════════════════════
+            ZONE B — ADMIN PORTAL
+            All admin routes wrapped in AdminLayout
+            which provides the dark sidebar shell.
+            ═══════════════════════════════════════ */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index                element={<Dashboard />} />
+          <Route path="content"       element={<ContentManagerAdmin />} />
+          <Route path="announcements" element={<AnnouncementEditorAdmin />} />
+          <Route path="staff"         element={<StaffDirectoryAdmin />} />
+          <Route path="success_stories" element={<ManageSuccessStoriesAdmin />} />
+          <Route path="story_editor"  element={<SuccessStoryEditorAdmin />} />
+        </Route>
+
+        {/* 404 Fallback */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
