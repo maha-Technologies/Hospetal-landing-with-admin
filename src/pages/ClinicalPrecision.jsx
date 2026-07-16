@@ -4,115 +4,137 @@ const ClinicalPrecision = () => {
   return (
     <div>
       {/* TopNavBar */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
-        <nav className="flex justify-between items-center w-full px-margin-desktop max-w-[1280px] mx-auto h-20">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
-            <span className="font-headline-md text-headline-md font-bold text-primary">MediCore Health</span>
+      <header className="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3 shadow-sm">
+        <div className="container">
+          <a className="navbar-brand d-flex align-items-center gap-2 text-primary fw-bold" href="/">
+            <span className="material-symbols-outlined fs-3" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
+            <span>MediCore Health</span>
+          </a>
+          <div className="collapse navbar-collapse justify-content-center">
+            <ul className="navbar-nav gap-4">
+              <li className="nav-item">
+                <a className="nav-link text-secondary" href="/cardiology">Services</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link text-secondary" href="/doctors">Doctors</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link text-primary fw-bold border-bottom border-primary border-2 px-0" href="#">Technology</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link text-secondary" href="#">About</a>
+              </li>
+            </ul>
           </div>
-          <div className="hidden md:flex items-center space-x-8">
-            <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="/cardiology_services_medicore_health">Services</a>
-            <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Doctors</a>
-            <a className="font-label-md text-label-md text-primary border-b-2 border-primary font-bold pb-1" href="#">Technology</a>
-            <a className="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
-          </div>
-          <div className="flex items-center gap-4">
-            <button className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">notifications</button>
-            <button className="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">help</button>
-            <button className="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md hover:bg-primary-container transition-all active:scale-95">
+          <div className="d-flex align-items-center">
+            <button className="btn btn-primary px-4 py-2 fw-bold rounded-pill shadow-sm hover-shadow">
               Patient Portal
             </button>
           </div>
-        </nav>
+        </div>
       </header>
 
-      <main className="pt-20">
+      <main className="flex-grow-1">
         {/* Hero Section */}
-        <section className="relative min-h-[60vh] flex items-center overflow-hidden px-margin-mobile md:px-margin-desktop bg-surface-container-low">
-          <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full z-10 py-16">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container mb-2">
-                <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>precision_manufacturing</span>
-                <span className="text-label-sm font-label-sm">STATE-OF-THE-ART</span>
-              </div>
-              <h1 className="font-display-lg text-display-lg text-on-surface leading-tight">
-                Clinical Precision at Every Step
-              </h1>
-              <p className="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
-                Discover how MediCore leverages next-generation medical technology, artificial intelligence, and robotic assistance to ensure unparalleled accuracy in diagnosis and treatment.
-              </p>
-              <div className="flex gap-4 pt-4">
-                <button className="bg-primary text-on-primary px-8 py-3 rounded-xl font-label-md text-lg hover:shadow-lg transition-all active:scale-95">
+        <section className="position-relative bg-light overflow-hidden">
+          <div className="container py-5">
+            <div className="row align-items-center g-5 py-5">
+              <div className="col-lg-6">
+                <div className="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-success bg-opacity-10 text-success small fw-bold mb-4">
+                  <span className="material-symbols-outlined fs-5" style={{ fontVariationSettings: "'FILL' 1" }}>precision_manufacturing</span>
+                  <span className="tracking-wide">STATE-OF-THE-ART</span>
+                </div>
+                <h1 className="display-4 fw-bold text-dark mb-4 lh-sm">
+                  Clinical Precision at Every Step
+                </h1>
+                <p className="lead text-secondary mb-5">
+                  Discover how MediCore leverages next-generation medical technology, artificial intelligence, and robotic assistance to ensure unparalleled accuracy in diagnosis and treatment.
+                </p>
+                <button className="btn btn-primary btn-lg fw-bold px-5 py-3 rounded-3 shadow-sm hover-shadow">
                   Explore Facilities
                 </button>
               </div>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3]">
-              <img className="w-full h-full object-cover" alt="Advanced robotic surgery room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEWnuJYKiItVG-pC-AhOUA32JyzMkBSfpJ3DV7vqB2mwYPJZqO3QKTm3BOmvrtOZuTX5VOT4-nTyGtGaFNfNrbR-XOrT9sBrWgACQutDZF_0GFvfNFasgM_1Yxp3aZ2sYa1O5A1nkpI8op_2joN8QqA3tToSceu0UzTRFBOkb6ONdn6oLAqEwRsNsGBWXmjvmz2Nac-qmxh4b9CdeuV2f2isUN4uBRaJEN-DS2QDxIYQLhsoIILmACzA" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-6 left-6 text-white">
-                <div className="font-headline-md font-bold">Robotic Surgery Wing</div>
-                <div className="font-body-sm opacity-90">Minimally invasive, maximum precision.</div>
+              <div className="col-lg-6">
+                <div className="rounded-4 overflow-hidden shadow-lg border border-4 border-white position-relative" style={{ height: '400px' }}>
+                  <img className="w-100 h-100 object-fit-cover" alt="Advanced robotic surgery room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEWnuJYKiItVG-pC-AhOUA32JyzMkBSfpJ3DV7vqB2mwYPJZqO3QKTm3BOmvrtOZuTX5VOT4-nTyGtGaFNfNrbR-XOrT9sBrWgACQutDZF_0GFvfNFasgM_1Yxp3aZ2sYa1O5A1nkpI8op_2joN8QqA3tToSceu0UzTRFBOkb6ONdn6oLAqEwRsNsGBWXmjvmz2Nac-qmxh4b9CdeuV2f2isUN4uBRaJEN-DS2QDxIYQLhsoIILmACzA" />
+                  <div className="position-absolute bottom-0 start-0 w-100 p-4 pt-5" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)' }}>
+                    <div className="h4 fw-bold text-white mb-1">Robotic Surgery Wing</div>
+                    <div className="text-white-50 small fw-bold">Minimally invasive, maximum precision.</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Features Section */}
-        <section className="py-24 bg-surface px-margin-mobile md:px-margin-desktop">
-          <div className="max-w-[1280px] mx-auto text-center mb-16">
-            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">Pioneering Healthcare Innovation</h2>
-            <p className="text-on-surface-variant max-w-2xl mx-auto">We continually invest in the latest advancements to offer our patients the safest, fastest, and most effective treatments available today.</p>
-          </div>
-          
-          <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <div className="bg-surface-container rounded-[2rem] p-8 border border-outline-variant hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-3xl">biotech</span>
-              </div>
-              <h3 className="font-headline-md text-headline-md mb-4 text-on-surface">Advanced Diagnostics</h3>
-              <p className="text-body-md text-on-surface-variant">Our high-resolution imaging centers and molecular labs enable early detection and precise targeting of conditions before they advance.</p>
+        <section className="py-5 bg-white">
+          <div className="container py-5">
+            <div className="text-center mb-5">
+              <h2 className="display-6 fw-bold text-dark mb-3">Pioneering Healthcare Innovation</h2>
+              <p className="lead text-muted col-lg-8 mx-auto">We continually invest in the latest advancements to offer our patients the safest, fastest, and most effective treatments available today.</p>
             </div>
             
-            {/* Feature 2 */}
-            <div className="bg-surface-container rounded-[2rem] p-8 border border-outline-variant hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-3xl">memory</span>
+            <div className="row g-4 pt-4">
+              {/* Feature 1 */}
+              <div className="col-lg-4">
+                <div className="card h-100 bg-light border border-light rounded-4 p-4 p-lg-5 hover-shadow">
+                  <div className="rounded-circle bg-primary bg-opacity-10 text-primary d-flex align-items-center justify-content-center mb-4" style={{ width: '64px', height: '64px' }}>
+                    <span className="material-symbols-outlined fs-2">biotech</span>
+                  </div>
+                  <h3 className="h4 fw-bold text-dark mb-3">Advanced Diagnostics</h3>
+                  <p className="text-secondary mb-0">Our high-resolution imaging centers and molecular labs enable early detection and precise targeting of conditions before they advance.</p>
+                </div>
               </div>
-              <h3 className="font-headline-md text-headline-md mb-4 text-on-surface">AI-Assisted Analysis</h3>
-              <p className="text-body-md text-on-surface-variant">By integrating artificial intelligence into our pathology and radiology workflows, we double-check findings and drastically reduce human error.</p>
-            </div>
-            
-            {/* Feature 3 */}
-            <div className="bg-surface-container rounded-[2rem] p-8 border border-outline-variant hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-3xl">settings_accessibility</span>
+              
+              {/* Feature 2 */}
+              <div className="col-lg-4">
+                <div className="card h-100 bg-light border border-light rounded-4 p-4 p-lg-5 hover-shadow">
+                  <div className="rounded-circle bg-info bg-opacity-10 text-info d-flex align-items-center justify-content-center mb-4" style={{ width: '64px', height: '64px' }}>
+                    <span className="material-symbols-outlined fs-2">memory</span>
+                  </div>
+                  <h3 className="h4 fw-bold text-dark mb-3">AI-Assisted Analysis</h3>
+                  <p className="text-secondary mb-0">By integrating artificial intelligence into our pathology and radiology workflows, we double-check findings and drastically reduce human error.</p>
+                </div>
               </div>
-              <h3 className="font-headline-md text-headline-md mb-4 text-on-surface">Robotic Prosthetics</h3>
-              <p className="text-body-md text-on-surface-variant">Our orthopedic centers offer custom 3D-printed joints and robotic-assisted surgeries for faster recovery times and perfect alignment.</p>
+              
+              {/* Feature 3 */}
+              <div className="col-lg-4">
+                <div className="card h-100 bg-light border border-light rounded-4 p-4 p-lg-5 hover-shadow">
+                  <div className="rounded-circle bg-danger bg-opacity-10 text-danger d-flex align-items-center justify-content-center mb-4" style={{ width: '64px', height: '64px' }}>
+                    <span className="material-symbols-outlined fs-2">settings_accessibility</span>
+                  </div>
+                  <h3 className="h4 fw-bold text-dark mb-3">Robotic Prosthetics</h3>
+                  <p className="text-secondary mb-0">Our orthopedic centers offer custom 3D-printed joints and robotic-assisted surgeries for faster recovery times and perfect alignment.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="bg-surface-container-highest border-t border-outline-variant">
-        <div className="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-12 w-full max-w-[1280px] mx-auto">
-          <div className="mb-8 md:mb-0">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
-              <span className="font-label-md text-label-md font-bold text-on-surface">MediCore Health</span>
+      <footer className="bg-dark text-white pt-5 pb-4">
+        <div className="container mt-3">
+          <div className="row align-items-center">
+            <div className="col-md-6 text-center text-md-start mb-4 mb-md-0">
+              <div className="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mb-3">
+                <span className="material-symbols-outlined text-primary fs-3" style={{ fontVariationSettings: "'FILL' 1" }}>medical_services</span>
+                <span className="h4 fw-bold mb-0">MediCore Health</span>
+              </div>
+              <p className="text-white-50 small mb-0">© 2024 MediCore Healthcare Systems. All rights reserved.</p>
             </div>
-            <p className="font-body-sm text-body-sm text-on-surface-variant">© 2024 MediCore Healthcare Systems. All rights reserved.</p>
-          </div>
-          <div className="flex gap-4">
-            <button className="w-10 h-10 rounded-full bg-surface flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-              <span className="material-symbols-outlined text-xl">share</span>
-            </button>
-            <button className="w-10 h-10 rounded-full bg-surface flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-              <span className="material-symbols-outlined text-xl">language</span>
-            </button>
+            
+            <div className="col-md-6 text-center text-md-end">
+              <div className="d-inline-flex gap-3">
+                <button className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center p-0" style={{ width: '40px', height: '40px' }}>
+                  <span className="material-symbols-outlined fs-5">share</span>
+                </button>
+                <button className="btn btn-outline-light rounded-circle d-flex align-items-center justify-content-center p-0" style={{ width: '40px', height: '40px' }}>
+                  <span className="material-symbols-outlined fs-5">language</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
