@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 const NAV = [
-  { to: '/admin',              icon: 'dashboard',      label: 'Dashboard',        exact: true },
-  { to: '/admin/content',      icon: 'article',         label: 'Content Manager' },
-  { to: '/admin/announcements',icon: 'campaign',        label: 'Announcements' },
-  { to: '/admin/staff',        icon: 'badge',           label: 'Staff Directory' },
+  { to: '/admin',               icon: 'dashboard',    label: 'Dashboard',          exact: true },
+  { to: '/admin/doctors',       icon: 'stethoscope',  label: 'Doctors Management' },
+  { to: '/admin/announcements', icon: 'campaign',     label: 'Announcements' },
+  { to: '/admin/content',       icon: 'article',      label: 'Content Manager' },
+  { to: '/admin/staff',         icon: 'badge',        label: 'Staff Directory' },
   { to: '/admin/success_stories', icon: 'auto_stories', label: 'Success Stories' },
-  { to: '/admin/story_editor', icon: 'edit_note',       label: 'Story Editor' },
+  { to: '/admin/story_editor',  icon: 'edit_note',    label: 'Story Editor' },
 ];
 
 const AdminLayout = () => {

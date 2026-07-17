@@ -11,6 +11,7 @@ import Lab      from './public/Lab';
 // ── Admin Zone ───────────────────────────────────────────────
 import AdminLayout               from './admin/AdminLayout';
 import Dashboard                 from './admin/Dashboard';
+import AdminDoctors              from './admin/AdminDoctors';
 import ContentManagerAdmin       from './pages/ContentManagerAdmin';
 import AnnouncementEditorAdmin   from './pages/AnnouncementEditorMedicoreAdmin';
 import StaffDirectoryAdmin       from './pages/StaffDirectoryMedicoreAdmin';
@@ -47,12 +48,13 @@ const App = () => {
             which provides the dark sidebar shell.
             ═══════════════════════════════════════ */}
         <Route path="/admin" element={<AdminLayout />}>
-          <Route index                element={<Dashboard />} />
-          <Route path="content"       element={<ContentManagerAdmin />} />
-          <Route path="announcements" element={<AnnouncementEditorAdmin />} />
-          <Route path="staff"         element={<StaffDirectoryAdmin />} />
+          <Route index                  element={<Dashboard />} />
+          <Route path="doctors"         element={<AdminDoctors />} />
+          <Route path="content"         element={<ContentManagerAdmin />} />
+          <Route path="announcements"   element={<AnnouncementEditorAdmin />} />
+          <Route path="staff"           element={<StaffDirectoryAdmin />} />
           <Route path="success_stories" element={<ManageSuccessStoriesAdmin />} />
-          <Route path="story_editor"  element={<SuccessStoryEditorAdmin />} />
+          <Route path="story_editor"    element={<SuccessStoryEditorAdmin />} />
         </Route>
 
         {/* 404 Fallback */}

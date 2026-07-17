@@ -191,10 +191,12 @@ const Home = () => (
             {DEPTS.slice(0, 2).map((d, i) => (
               <AnimatedSection key={d.label} delay={(i + 2) * 100}>
                 <div className="mc-card h-100 p-4">
-                  <div style={{ width: 48, height: 48, borderRadius: 14, background: d.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
-                    <span className="material-symbols-outlined fill-icon" style={{ color: d.color, fontSize: 24 }}>{d.icon}</span>
+                  <div className="d-flex align-items-center gap-3 mb-2">
+                    <div style={{ width: 42, height: 42, borderRadius: 12, background: d.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      <span className="material-symbols-outlined fill-icon" style={{ color: d.color, fontSize: 22 }}>{d.icon}</span>
+                    </div>
+                    <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a', margin: 0 }}>{d.label}</h3>
                   </div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a', marginBottom: 8 }}>{d.label}</h3>
                   <p style={{ fontSize: 13, color: '#64748b', margin: 0, lineHeight: 1.6 }}>{d.desc}</p>
                 </div>
               </AnimatedSection>
@@ -205,10 +207,12 @@ const Home = () => (
             <div key={d.label} className="col-sm-6 col-lg-3">
               <AnimatedSection delay={(i + 4) * 80}>
                 <div className="mc-card h-100 p-4">
-                  <div style={{ width: 44, height: 44, borderRadius: 12, background: d.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
-                    <span className="material-symbols-outlined fill-icon" style={{ color: d.color, fontSize: 22 }}>{d.icon}</span>
+                  <div className="d-flex align-items-center gap-3 mb-2">
+                    <div style={{ width: 40, height: 40, borderRadius: 11, background: d.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      <span className="material-symbols-outlined fill-icon" style={{ color: d.color, fontSize: 20 }}>{d.icon}</span>
+                    </div>
+                    <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#0f172a', margin: 0 }}>{d.label}</h3>
                   </div>
-                  <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#0f172a', marginBottom: 6 }}>{d.label}</h3>
                   <p style={{ fontSize: 13, color: '#64748b', margin: 0, lineHeight: 1.5 }}>{d.desc}</p>
                 </div>
               </AnimatedSection>
