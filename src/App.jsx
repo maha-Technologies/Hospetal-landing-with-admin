@@ -2,12 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // ── Public Zone ──────────────────────────────────────────────
-import Home              from './public/Home';
-import Services          from './public/Services';
-import About             from './public/About';
-import Cardiology        from './public/Cardiology';
-import ClinicalPrecision from './public/ClinicalPrecision';
-import Doctors           from './public/Doctors';
+import Home     from './public/Home';
+import Services from './public/Services';
+import About    from './public/About';
+import Doctors  from './public/Doctors';
+import Lab      from './public/Lab';
 
 // ── Admin Zone ───────────────────────────────────────────────
 import AdminLayout               from './admin/AdminLayout';
@@ -36,12 +35,11 @@ const App = () => {
         {/* ═══════════════════════════════════════
             ZONE A — PUBLIC PATIENT PORTAL
             ═══════════════════════════════════════ */}
-        <Route path="/"                   element={<Home />} />
-        <Route path="/services"           element={<Services />} />
-        <Route path="/about"              element={<About />} />
-        <Route path="/cardiology"         element={<Cardiology />} />
-        <Route path="/clinical-precision" element={<ClinicalPrecision />} />
-        <Route path="/doctors"            element={<Doctors />} />
+        <Route path="/"        element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/about"    element={<About />} />
+        <Route path="/doctors"  element={<Doctors />} />
+        <Route path="/lab"      element={<Lab />} />
 
         {/* ═══════════════════════════════════════
             ZONE B — ADMIN PORTAL

@@ -1,94 +1,94 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Footer = () => {
-  return (
-    <footer style={{ background: '#0f172a', color: '#e2e8f0', paddingTop: 64, paddingBottom: 32 }}>
-      <div className="container">
-        <div className="row g-5 mb-5">
-          {/* Brand Column */}
-          <div className="col-lg-4">
-            <Link to="/" className="d-flex align-items-center gap-2 text-decoration-none mb-4">
-              <div className="d-flex align-items-center justify-content-center rounded-3 bg-primary text-white" style={{ width: 40, height: 40 }}>
-                <span className="material-symbols-outlined fill-icon" style={{ fontSize: 22 }}>medical_services</span>
-              </div>
-              <span style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.4rem', fontWeight: 800, color: '#fff' }}>
-                Town Hospital
-              </span>
-            </Link>
-            <p style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.7, maxWidth: 300 }}>
-              A trusted multispeciality hospital serving Sarjapura, Bangalore since decades — compassionate care for every family.
-            </p>
-            <div className="d-flex gap-3 mt-4">
-              {['facebook', 'twitter', 'linkedin', 'instagram'].map(s => (
-                <a key={s} href="#" style={{ width: 38, height: 38, borderRadius: '50%', background: '#1e293b', border: '1px solid #334155', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#94a3b8', textDecoration: 'none', transition: 'all 0.2s', fontSize: 15 }}
-                  onMouseOver={e => { e.currentTarget.style.background='#1a73e8'; e.currentTarget.style.color='#fff'; }}
-                  onMouseOut={e => { e.currentTarget.style.background='#1e293b'; e.currentTarget.style.color='#94a3b8'; }}
-                >
-                  <i className={`fab fa-${s}`}></i>
-                </a>
-              ))}
+const Footer = () => (
+  <footer style={{ background: '#0a0f1e', color: '#e2e8f0', paddingTop: 64, paddingBottom: 32 }}>
+    <div className="container">
+      <div className="row g-5 mb-5">
+        {/* Brand */}
+        <div className="col-lg-4">
+          <div className="d-flex align-items-center gap-2 mb-4">
+            <div style={{ width: 42, height: 42, borderRadius: 12, background: 'linear-gradient(135deg, #1565C0, #00897B)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span className="material-symbols-outlined fill-icon" style={{ fontSize: 22, color: '#fff' }}>local_hospital</span>
+            </div>
+            <div>
+              <div style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.15rem', fontWeight: 800, color: '#fff', lineHeight: 1 }}>Town Hospital</div>
+              <div style={{ fontSize: 10, color: '#64748b', letterSpacing: '0.04em', marginTop: 2 }}>SARJAPURA, BANGALORE</div>
             </div>
           </div>
-
-          {/* Services */}
-          <div className="col-sm-6 col-lg-2">
-            <h6 style={{ color: '#fff', fontWeight: 700, marginBottom: 20, fontSize: 14 }}>Services</h6>
-            {['Cardiology', 'Neurology', 'Pediatrics', 'Orthopedics', 'Oncology', 'Emergency Care'].map(s => (
-              <a key={s} href="#" style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', fontSize: 14, marginBottom: 10, transition: 'color 0.2s' }}
-                onMouseOver={e => e.currentTarget.style.color = '#fff'}
-                onMouseOut={e => e.currentTarget.style.color = '#94a3b8'}
-              >{s}</a>
-            ))}
-          </div>
-
-          {/* Quick Links */}
-          <div className="col-sm-6 col-lg-2">
-            <h6 style={{ color: '#fff', fontWeight: 700, marginBottom: 20, fontSize: 14 }}>Quick Links</h6>
-            {['About Us', 'Our Doctors', 'Success Stories', 'Research', 'Careers', 'Contact'].map(s => (
-              <a key={s} href="#" style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', fontSize: 14, marginBottom: 10, transition: 'color 0.2s' }}
-                onMouseOver={e => e.currentTarget.style.color = '#fff'}
-                onMouseOut={e => e.currentTarget.style.color = '#94a3b8'}
-              >{s}</a>
-            ))}
-          </div>
-
-          {/* Contact */}
-          <div className="col-lg-4">
-            <h6 style={{ color: '#fff', fontWeight: 700, marginBottom: 20, fontSize: 14 }}>Contact Us</h6>
-            <div className="d-flex flex-column gap-3">
-              {[
-                { icon: 'location_on', text: 'Bagalur Road, Sarjapur Road,\nNear Sri Rama Temple,\nBangalore - 560034' },
-                { icon: 'call', text: '080-27823388\n080-27823799' },
-                { icon: 'mail', text: 'info@townhospitalsarjapura.com' },
-                { icon: 'schedule', text: 'Mon–Sat: 6:00 PM – 8:00 PM (OPD)\nDiagnostics: 24 Hours' },
-              ].map(({ icon, text }) => (
-                <div key={icon} className="d-flex gap-3 align-items-start">
-                  <span className="material-symbols-outlined fill-icon" style={{ color: '#1a73e8', fontSize: 20, flexShrink: 0, marginTop: 1 }}>{icon}</span>
-                  <span style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.6, whiteSpace: 'pre-line' }}>{text}</span>
-                </div>
-              ))}
+          <p style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.8, maxWidth: 300 }}>
+            A trusted community hospital serving Sarjapura and surrounding areas. Compassionate care for every family — from general medicine to advanced surgery and 24-hour diagnostics.
+          </p>
+          <div className="d-flex align-items-center gap-2 mt-3 p-3 rounded-3" style={{ background: 'rgba(0,137,123,0.12)', border: '1px solid rgba(0,137,123,0.2)' }}>
+            <span className="material-symbols-outlined fill-icon" style={{ color: '#00c896', fontSize: 20 }}>emergency</span>
+            <div>
+              <div style={{ fontSize: 12, color: '#94a3b8' }}>Diagnostics Lab</div>
+              <div style={{ fontWeight: 700, color: '#00c896', fontSize: 14 }}>Open 24 Hours</div>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div style={{ borderTop: '1px solid #1e293b', paddingTop: 24, display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'space-between', alignItems: 'center' }}>
-          <p style={{ color: '#475569', fontSize: 13, margin: 0 }}>
-            © 2024 Town Hospital, Sarjapura. All rights reserved.
-          </p>
-          <div className="d-flex gap-4">
-            {['Privacy Policy', 'Terms of Service', 'Accessibility', 'Cookie Settings'].map(s => (
-              <a key={s} href="#" style={{ color: '#475569', textDecoration: 'none', fontSize: 13, transition: 'color 0.2s' }}
-                onMouseOver={e => e.currentTarget.style.color = '#94a3b8'}
-                onMouseOut={e => e.currentTarget.style.color = '#475569'}
-              >{s}</a>
+        {/* Departments */}
+        <div className="col-sm-6 col-lg-2">
+          <h6 style={{ color: '#fff', fontWeight: 700, marginBottom: 20, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Departments</h6>
+          {['General OPD', 'General Surgery', 'Laparoscopic Surgery', 'Gastroenterology', 'Gynaecology', 'Paediatrics', 'Pathology Lab', 'Dermatology'].map(s => (
+            <Link key={s} to="/services" style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', fontSize: 13, marginBottom: 9, transition: 'color 0.2s' }}
+              onMouseOver={e => e.currentTarget.style.color = '#fff'}
+              onMouseOut={e => e.currentTarget.style.color = '#94a3b8'}>
+              {s}
+            </Link>
+          ))}
+        </div>
+
+        {/* Quick Links */}
+        <div className="col-sm-6 col-lg-2">
+          <h6 style={{ color: '#fff', fontWeight: 700, marginBottom: 20, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Quick Links</h6>
+          {[
+            { label: 'Home', to: '/' },
+            { label: 'Our Doctors', to: '/doctors' },
+            { label: 'Lab & Diagnostics', to: '/lab' },
+            { label: 'About Us', to: '/about' },
+          ].map(({ label, to }) => (
+            <Link key={label} to={to} style={{ display: 'block', color: '#94a3b8', textDecoration: 'none', fontSize: 13, marginBottom: 9, transition: 'color 0.2s' }}
+              onMouseOver={e => e.currentTarget.style.color = '#fff'}
+              onMouseOut={e => e.currentTarget.style.color = '#94a3b8'}>
+              {label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Contact */}
+        <div className="col-lg-4">
+          <h6 style={{ color: '#fff', fontWeight: 700, marginBottom: 20, fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Contact & Timings</h6>
+          <div className="d-flex flex-column gap-4">
+            {[
+              { icon: 'location_on', text: '#41/2, Bagalur Road,\nNear Sri Rama Temple,\nSarjapura, Bengaluru — 562125' },
+              { icon: 'call', text: '080-27823388\n080-27823799' },
+              { icon: 'schedule', text: 'OPD: Mon–Sat, 6:00 PM – 8:00 PM\nDiagnostics Lab: Open 24 Hours' },
+              { icon: 'directions_bus', text: 'Landmark: Next to Sri Rama Temple,\nSarjapura Bus Stop — 200 m' },
+            ].map(({ icon, text }) => (
+              <div key={icon} className="d-flex gap-3 align-items-start">
+                <span className="material-symbols-outlined fill-icon" style={{ color: '#1565C0', fontSize: 20, flexShrink: 0, marginTop: 1 }}>{icon}</span>
+                <span style={{ color: '#94a3b8', fontSize: 13, lineHeight: 1.7, whiteSpace: 'pre-line' }}>{text}</span>
+              </div>
             ))}
           </div>
         </div>
       </div>
-    </footer>
-  );
-};
+
+      {/* Bottom bar */}
+      <div style={{ borderTop: '1px solid #1e293b', paddingTop: 24, display: 'flex', flexWrap: 'wrap', gap: 16, justifyContent: 'space-between', alignItems: 'center' }}>
+        <p style={{ color: '#475569', fontSize: 13, margin: 0 }}>
+          © 2024 Town Hospital, Sarjapura, Bengaluru. All rights reserved.
+        </p>
+        <div className="d-flex gap-4">
+          {['Privacy Policy', 'Terms of Service'].map(s => (
+            <a key={s} href="#" style={{ color: '#475569', textDecoration: 'none', fontSize: 13 }}>{s}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;
