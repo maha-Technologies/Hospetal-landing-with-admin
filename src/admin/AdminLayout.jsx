@@ -28,8 +28,8 @@ const AdminLayout = () => {
             <span className="material-symbols-outlined fill-icon" style={{ fontSize: 20, color: '#fff' }}>medical_services</span>
           </div>
           <div>
-            <div className="logo-text">MediCore</div>
-            <div style={{ fontSize: 11, color: 'var(--admin-muted)', marginTop: 1 }}>Admin Portal</div>
+            <div className="logo-text">Town Hospital</div>
+            <div style={{ fontSize: 11, color: 'var(--admin-muted)', marginTop: 1 }}>Admin Portal — Sarjapura</div>
           </div>
         </div>
 
